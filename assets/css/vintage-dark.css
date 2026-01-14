@@ -145,3 +145,32 @@ hr {
     margin: 2em 0;
     box-shadow: none;
 }
+
+/* ASCII pixelated world map background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: url('../background.png') repeat;
+    opacity: 0.80; /* set to 80% visibility */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    will-change: opacity;
+}
+
+/* Dark overlay for readability */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: rgba(10, 8, 16, 0.60); /* slightly lighter overlay for more background visibility */
+}
+
+body > * {
+    position: relative;
+    z-index: 2;
+}
