@@ -1,0 +1,632 @@
+/* Basic CSS Reset and structure for Necrowarp site */
+
+html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* Set base box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.5;
+}
+
+/* Structure only, no styling yet */
+
+/*----------------------
+  CSS Variables: Colors & Typography
+----------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&display=swap');
+
+:root {
+    --color-bg: #f7f6f3;
+    --color-bg-alt: #fff;
+    --color-surface: #fff;
+    --color-border: #e0e0e0;
+    --color-text: #222;
+    --color-text-muted: #555;
+    --color-link: #222;
+    --color-link-hover: #444;
+    --font-main: 'Source Serif 4', serif;
+    --font-mono: 'Fira Mono', 'Consolas', monospace;
+    --border-radius: 0;
+    --transition-fast: none;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.7;
+    font-size: 1.08rem;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    max-width: 540px;
+    margin: 2.5rem auto 0 auto;
+    padding: 1.5rem 1rem 2rem 1rem;
+    background: var(--color-bg-alt);
+    border-radius: var(--border-radius);
+    box-shadow: none;
+}
+
+header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    text-align: center;
+    font-size: 0.98rem;
+    padding: 1.2rem 0 1rem 0;
+    margin-top: 2.5rem;
+}
+
+nav {
+    width: 100%;
+    background: none;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    margin: 0;
+}
+nav a {
+    text-decoration: underline;
+    color: var(--color-link);
+    padding: 0.5em 0.5em;
+    display: block;
+    border-radius: 0;
+    background: none;
+    transition: none;
+}
+nav a:focus {
+    outline: 2px solid #222;
+    outline-offset: 2px;
+    background: none;
+}
+nav a:hover {
+    color: var(--color-link-hover);
+    background: none;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text);
+    font-family: var(--font-main);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.7em;
+    line-height: 1.2;
+}
+h1 {
+    font-size: 2rem;
+    color: var(--color-text);
+}
+h2 {
+    font-size: 1.2rem;
+    color: var(--color-text);
+}
+h3 {
+    font-size: 1.05rem;
+    color: var(--color-text);
+}
+
+/* Remove orphaned property blocks, keep only valid selectors */
+a:hover, a:focus {
+    color: var(--color-link-hover);
+    outline: none;
+}
+/* Removed empty nav li ruleset */
+strong, b {
+    font-weight: 700;
+}
+em, i {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+code, pre {
+    background: #f3f3f3;
+    color: #222;
+    border-radius: 0;
+    padding: 0.1em 0.4em;
+}
+hr {
+    border-top: 1px solid var(--color-border);
+    margin: 2em 0;
+}
+
+.cta[role="button"] {
+    display: inline-block;
+    background: none;
+    color: var(--color-link);
+    font-weight: 600;
+    padding: 0.5em 1em;
+    border-radius: 0;
+    text-decoration: underline;
+    font-size: 1.08rem;
+    letter-spacing: 0.01em;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+}
+.cta[role="button"]:hover, .cta[role="button"]:focus {
+    background: none;
+    color: var(--color-link-hover);
+    outline: none;
+}
+
+/* Basic global navigation layout */
+nav {
+    width: 100%;
+    background: none;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    margin: 0;
+}
+/* Removed empty nav li ruleset */
+nav a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5em 0.75em;
+    display: block;
+}
+nav a:focus {
+    outline: 2px solid #333;
+    outline-offset: 2px;
+}
+
+/* Responsive Navigation Bar */
+nav {
+    width: 100%;
+    background: none;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+/* Removed empty nav li ruleset */
+nav a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5em 0.75em;
+    display: block;
+}
+#nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 0.5em 1em;
+    font: inherit;
+    cursor: pointer;
+    margin: 0.5em 0;
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        gap: 0;
+    }
+    nav ul.open {
+        display: flex;
+    }
+    #nav-toggle {
+        display: block;
+    }
+}
+/*----------------------
+  CSS Variables: Colors & Typography
+----------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather+Sans:wght@700&family=Fira+Mono:wght@400&display=swap');
+
+:root {
+    --color-bg: #18171c;
+    --color-bg-alt: #23222a;
+    --color-surface: #23222a;
+    --color-border: #2d2b36;
+    --color-text: #e0e0e0;
+    --color-text-muted: #b0aeb8;
+    --color-accent-red: #c94f5c;
+    --color-accent-purple: #7c4fd6;
+    --color-link: #c94f5c;
+    --color-link-hover: #7c4fd6;
+    --font-main: 'Inter', 'Segoe UI', 'Liberation Sans', Arial, sans-serif;
+    --font-heading: 'Merriweather Sans', 'Segoe UI', Arial, sans-serif;
+    --font-mono: 'Fira Mono', 'Consolas', monospace;
+    --border-radius: 6px;
+    --transition-fast: 0.15s cubic-bezier(.4,0,.2,1);
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.65;
+    font-size: 1.08rem;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variation-settings: "wght" 400;
+}
+
+main {
+    max-width: 700px;
+    margin: 2.5rem auto 0 auto;
+    padding: 2rem 1.5rem 2.5rem 1.5rem;
+    background: var(--color-bg-alt);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+}
+
+header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.75rem 0 0.75rem 0;
+}
+
+footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 1.5rem 0 1.2rem 0;
+    margin-top: 2.5rem;
+}
+
+/*----------------------
+  Navigation
+----------------------*/
+nav {
+    width: 100%;
+    background: none;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+}
+/* Removed empty nav li ruleset */
+nav a {
+    text-decoration: none;
+    color: var(--color-link);
+    padding: 0.5em 0.85em;
+    display: block;
+    border-radius: var(--border-radius);
+    transition: background var(--transition-fast), color var(--transition-fast);
+    outline: none;
+}
+nav a:focus {
+    outline: 2px solid var(--color-accent-purple);
+    outline-offset: 2px;
+    background: rgba(124, 79, 214, 0.13);
+}
+nav a:hover {
+    color: var(--color-link-hover);
+    background: rgba(124, 79, 214, 0.08);
+}
+#nav-toggle {
+    display: none;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-link);
+    padding: 0.5em 1em;
+    font: inherit;
+    cursor: pointer;
+    margin: 0.5em 0;
+    border-radius: var(--border-radius);
+    transition: border var(--transition-fast), color var(--transition-fast);
+}
+#nav-toggle:focus {
+    outline: 2px solid var(--color-accent-purple);
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 1.2rem 0.5rem 2rem 0.5rem;
+    }
+    nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        gap: 0;
+        padding: 0.5rem 0.5rem;
+    }
+    nav ul.open {
+        display: flex;
+    }
+    #nav-toggle {
+        display: block;
+    }
+}
+
+/*----------------------
+  Typography & Content
+----------------------*/
+/* Headings: slightly stylized, modern, not decorative */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.65em;
+    margin-top: 1.7em;
+    line-height: 1.18;
+}
+h1:first-child, h2:first-child, h3:first-child {
+    margin-top: 0;
+}
+h1 {
+    font-size: 2.2rem;
+    color: var(--color-accent-purple);
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+h2 {
+    font-size: 1.4rem;
+    color: var(--color-accent-red);
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+h3 {
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+p, ul, ol {
+    color: var(--color-text);
+    margin-bottom: 1.15em;
+    margin-top: 0;
+}
+ul, ol {
+    padding-left: 1.5em;
+    margin-top: 0.2em;
+    margin-bottom: 1.15em;
+}
+li {
+    margin-bottom: 0.4em;
+}
+a {
+    color: var(--color-link);
+    transition: color var(--transition-fast);
+}
+a:hover, a:focus {
+    color: var(--color-link-hover);
+    outline: none;
+}
+
+strong, b {
+    color: var(--color-accent-red);
+}
+em, i {
+    color: var(--color-accent-purple);
+}
+
+code, pre {
+    font-family: var(--font-mono);
+    background: #201f26;
+    color: #e0e0e0;
+    border-radius: 4px;
+    padding: 0.1em 0.4em;
+    font-size: 0.98em;
+    letter-spacing: 0.01em;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 2em 0;
+}
+
+/*----------------------
+  Hero & CTA
+----------------------*/
+.hero {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    margin-top: 0.5rem;
+}
+.hero-desc {
+    color: var(--color-text-muted);
+    font-size: 1.15rem;
+    margin-bottom: 1.5em;
+}
+.cta[role="button"] {
+    display: inline-block;
+    background: var(--color-accent-red);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75em 2em;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+    transition: background var(--transition-fast), color var(--transition-fast);
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.cta[role="button"]:focus {
+    outline: 2px solid var(--color-accent-purple);
+    outline-offset: 2px;
+    background: var(--color-accent-purple);
+}
+.cta[role="button"]:hover {
+    background: var(--color-accent-purple);
+    color: #fff;
+}
+
+/*----------------------
+  Forms (Support Page)
+----------------------*/
+form {
+    margin: 2rem 0 1rem 0;
+    background: var(--color-bg-alt);
+    padding: 1.5rem 1rem 1.5rem 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.08);
+}
+form div {
+    margin-bottom: 1.2em;
+}
+label {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-bottom: 0.3em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 0.6em 0.9em;
+    font-size: 1rem;
+    font-family: var(--font-main);
+    transition: border var(--transition-fast);
+    outline: none;
+}
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border: 1.5px solid var(--color-accent-purple);
+    outline: 2px solid var(--color-accent-purple);
+    outline-offset: 1px;
+}
+button[type="submit"] {
+    background: var(--color-accent-purple);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.7em 2em;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: not-allowed;
+    opacity: 0.7;
+    outline: none;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+button[type="submit"]:focus {
+    outline: 2px solid var(--color-accent-purple);
+    outline-offset: 2px;
+}
+.form-note {
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+    margin-top: 1.2em;
+}
+
+/*----------------------
+  Devlog List
+----------------------*/
+.devlog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.devlog-entry {
+    margin-bottom: 2.2em;
+    background: var(--color-bg);
+    border-left: 4px solid var(--color-accent-purple);
+    padding: 1.1em 1.2em;
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.07);
+    margin-top: 0.5em;
+}
+.devlog-entry header {
+    margin-bottom: 0.5em;
+}
+.devlog-entry time {
+    color: var(--color-accent-red);
+    font-size: 0.98em;
+    font-family: var(--font-mono);
+    margin-right: 0.7em;
+}
+.devlog-entry h2 {
+    display: inline;
+    font-size: 1.1rem;
+    color: var(--color-accent-purple);
+    margin: 0;
+}
+
+/*----------------------
+  Misc
+----------------------*/
+::-webkit-scrollbar {
+    width: 10px;
+    background: var(--color-bg-alt);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 6px;
+}

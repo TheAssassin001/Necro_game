@@ -1,0 +1,147 @@
+/* Google Fonts: Press Start 2P and VT323 for retro look */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --font-main: 'Press Start 2P', 'VT323', monospace;
+    --font-mono: 'VT323', 'Fira Mono', monospace;
+    --color-bg: #18171c; /* very dark, slightly purple-black */
+    --color-panel: #231b23; /* dark, muted purple-brown */
+    --color-text: #b9a9b6; /* muted, pale grayish purple */
+    --color-text-muted: #6d5667; /* desaturated, dark mauve */
+    --color-link: #7a495a; /* muted, dark red-purple */
+    --color-link-hover: #a37a8c; /* muted, lighter mauve */
+    --color-border: #3a2a36; /* dark, muted border */
+    --color-shadow: transparent; /* no glow */
+    --color-red: #7a1a1a; /* deep blood red */
+    --color-purple: #6d5667;
+    --color-gray-dark: #18171c;
+    --color-gray: #231b23;
+    --color-gray-light: #b9a9b6;
+    --border-radius: 2px;
+    --transition-fast: 0.1s;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.4;
+    font-size: 1rem;
+    min-height: 100vh;
+    text-shadow: none;
+    letter-spacing: 1px;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+}
+
+nav {
+    width: 100%;
+    background: var(--color-panel);
+    border: 2px solid var(--color-border);
+    box-shadow: none;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0.5rem 2rem;
+    margin: 0;
+}
+nav a {
+    text-decoration: none;
+    color: var(--color-link);
+    padding: 0.5em 1.2em;
+    display: block;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    border: 2px solid var(--color-border);
+    background: var(--color-panel);
+    box-shadow: none;
+    border-radius: var(--border-radius);
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+nav a:focus, nav a:hover {
+    color: var(--color-link-hover);
+    background: #1a141a;
+    outline: 2px solid var(--color-link-hover);
+}
+
+main {
+    max-width: 600px;
+    margin: 3em auto 0 auto;
+    padding: 2em 2em;
+    background: var(--color-panel);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--color-border);
+    box-shadow: none;
+}
+
+button, input[type="submit"] {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    background: var(--color-link);
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+    padding: 0.5em 1.2em;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-top: 1em;
+    box-shadow: none;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+button:hover, input[type="submit"]:hover {
+    background: var(--color-link-hover);
+    color: var(--color-panel);
+    outline: 2px solid var(--color-link-hover);
+}
+
+input, textarea, select {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    background: #1a141a;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    box-shadow: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
+    margin-bottom: 1.1em;
+    text-shadow: none;
+}
+h1, h2 {
+    color: var(--color-red);
+    position: relative;
+}
+
+/* Blood droop pixel effect for h1, h2 */
+h1 .blood-droop, h2 .blood-droop {
+    display: inline-block;
+    width: 6px;
+    height: 12px;
+    background: var(--color-red);
+    border-radius: 0 0 3px 3px;
+    margin-left: 2px;
+    margin-right: 2px;
+    vertical-align: top;
+    box-shadow: 0 1px 2px #000a;
+}
+
+
+code, pre {
+    background: #1a141a;
+    color: #a37a8c;
+    border-radius: 2px;
+    padding: 0.2em 0.6em;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+}
+
+hr {
+    border-top: 2px solid var(--color-border);
+    margin: 2em 0;
+    box-shadow: none;
+}
