@@ -192,3 +192,14 @@ body > * {
     position: relative;
     z-index: 2;
 }
+
+/* Larger logo/title for Necrowarp */
+#game-title {
+    max-width: 480px !important;
+}
+
+@media (max-width: 600px) {
+  #game-title {
+    max-width: 98vw !important;
+  }
+}
