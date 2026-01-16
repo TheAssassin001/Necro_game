@@ -34,6 +34,8 @@ body {
     letter-spacing: 1px;
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: none;
+    padding-bottom: 3.5rem; /* prevent content from being hidden behind footer */
+    padding-top: 3.5rem; /* prevent content from being hidden behind header */
 }
 
 /* Visually hide browser scrollbar but keep scrolling functional */
@@ -202,4 +204,35 @@ body > * {
   #game-title {
     max-width: 98vw !important;
   }
+}
+
+footer {
+    background: rgba(24, 23, 28, 0.92) !important;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    text-align: center;
+    font-size: 0.98rem;
+    padding: 1.2rem 0 1rem 0;
+    margin-top: 2.5rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 100vw;
+    box-shadow: 0 -2px 12px 0 rgba(0,0,0,0.18);
+}
+
+header {
+    background: none;
+    border-bottom: none;
+    padding: 0.5rem 0 0.5rem 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    width: 100vw;
+    background: none !important;
+    box-shadow: none;
 }
