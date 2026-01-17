@@ -67,6 +67,8 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
     padding: 0.5rem 2rem;
     margin: 0;
@@ -247,4 +249,49 @@ header {
     width: 100vw;
     background: none !important;
     box-shadow: none;
+}
+
+form[aria-label="Contact form"] {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    max-width: 420px;
+    margin: 2.2em auto 1.5em auto;
+}
+form[aria-label="Contact form"] > div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+form[aria-label="Contact form"] label {
+    margin-bottom: 0.5em;
+    font-size: 1.04em;
+    color: var(--color-text-muted);
+    letter-spacing: 0.01em;
+}
+form[aria-label="Contact form"] input,
+form[aria-label="Contact form"] textarea {
+    width: 100%;
+    min-width: 0;
+    font-family: var(--font-main);
+    font-size: 1.04em;
+    background: #18171c;
+    color: var(--color-text);
+    border: 1.5px solid var(--color-border);
+    border-radius: 3px;
+    padding: 0.7em 1em;
+    margin: 0;
+    box-sizing: border-box;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.07);
+    transition: border-color 0.15s;
+}
+form[aria-label="Contact form"] input:focus,
+form[aria-label="Contact form"] textarea:focus {
+    outline: none;
+    border-color: var(--color-link-hover);
+}
+form[aria-label="Contact form"] button[type="submit"] {
+    margin-top: 0.7em;
+    align-self: flex-end;
+    min-width: 120px;
 }
