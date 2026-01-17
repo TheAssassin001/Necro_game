@@ -279,6 +279,6 @@ form[aria-label="Contact form"] textarea {
 }
 form[aria-label="Contact form"] button[type="submit"] {
     margin-top: 0.7em;
-    align-self: flex-end;
+    align-self: center !important;
     min-width: 120px;
 }
