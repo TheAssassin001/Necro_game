@@ -34,8 +34,8 @@ body {
     letter-spacing: 1px;
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: none;
-    padding-bottom: 3.5rem; /* prevent content from being hidden behind footer */
-    padding-top: 3.5rem; /* prevent content from being hidden behind header */
+    padding-bottom: 2.2rem; /* match reduced footer height */
+    padding-top: 4.2rem; /* adjust to match nav height */
 }
 
 /* Visually hide browser scrollbar but keep scrolling functional */
@@ -52,9 +52,17 @@ body {
 
 nav {
     width: 100%;
-    background: var(--color-panel);
-    border: 2px solid var(--color-border);
-    box-shadow: none;
+    background: rgba(24, 23, 28, 0.92) !important;
+    border-bottom: 1px solid var(--color-border);
+    border-top: none;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 11;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 nav ul {
     list-style: none;
@@ -173,11 +181,15 @@ body::before {
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 0;
     pointer-events: none;
-    background: url('../background.png') repeat;
+    background: url('../map_2048.png') no-repeat center center;
+    background-size: cover;
     opacity: 0.80; /* set to 80% visibility */
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     will-change: opacity;
+    /* Equal fade around all edges */
+    -webkit-mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
+    mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
 }
 
 /* Dark overlay for readability */
@@ -212,7 +224,7 @@ footer {
     color: var(--color-text-muted);
     text-align: center;
     font-size: 0.98rem;
-    padding: 1.2rem 0 1rem 0;
+    padding: 0.7rem 0 0.6rem 0; /* reduced height */
     margin-top: 2.5rem;
     position: fixed;
     left: 0;
