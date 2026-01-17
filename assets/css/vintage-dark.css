@@ -275,6 +275,7 @@ form[aria-label="Contact form"] textarea {
     min-height: 180px;
     height: 180px;
     resize: vertical;
+    font-size: 0.6em; /* Reduced text size */
 }
 form[aria-label="Contact form"] button[type="submit"] {
     margin-top: 0.7em;
