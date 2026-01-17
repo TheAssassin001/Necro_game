@@ -1,4 +1,4 @@
-// main.js - Placeholder for Necrowarp site JavaScript
+// main.js - Necrowarp site JavaScript
 // Responsive navigation toggle
 document.addEventListener('DOMContentLoaded', function () {
 	var navToggle = document.getElementById('nav-toggle');
@@ -16,6 +16,53 @@ document.addEventListener('DOMContentLoaded', function () {
 				navMenu.classList.remove('open');
 				navToggle.focus();
 			}
+		});
+	}
+
+	// --- Gallery Carousel Logic ---
+	// Video carousel
+	var videoMedia = document.getElementById('video-media');
+	var videoPrev = document.getElementById('video-prev');
+	var videoNext = document.getElementById('video-next');
+	if (videoMedia && videoPrev && videoNext) {
+		var videos = Array.from(videoMedia.children);
+		var videoIndex = 0;
+		function showVideo(idx) {
+			videos.forEach(function(v, i) {
+				v.style.display = (i === idx) ? '' : 'none';
+			});
+		}
+		showVideo(videoIndex);
+		videoPrev.addEventListener('click', function() {
+			videoIndex = (videoIndex - 1 + videos.length) % videos.length;
+			showVideo(videoIndex);
+		});
+		videoNext.addEventListener('click', function() {
+			videoIndex = (videoIndex + 1) % videos.length;
+			showVideo(videoIndex);
+		});
+	}
+
+	// Image carousel
+	var imgMedia = document.getElementById('img-media');
+	var imgPrev = document.getElementById('img-prev');
+	var imgNext = document.getElementById('img-next');
+	if (imgMedia && imgPrev && imgNext) {
+		var imgs = Array.from(imgMedia.children);
+		var imgIndex = 0;
+		function showImg(idx) {
+			imgs.forEach(function(img, i) {
+				img.style.display = (i === idx) ? '' : 'none';
+			});
+		}
+		showImg(imgIndex);
+		imgPrev.addEventListener('click', function() {
+			imgIndex = (imgIndex - 1 + imgs.length) % imgs.length;
+			showImg(imgIndex);
+		});
+		imgNext.addEventListener('click', function() {
+			imgIndex = (imgIndex + 1) % imgs.length;
+			showImg(imgIndex);
 		});
 	}
 });
