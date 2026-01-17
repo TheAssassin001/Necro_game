@@ -23,21 +23,61 @@
         <section aria-labelledby="gallery-title">
             <h1 id="gallery-title">Gallery</h1>
             <h2>Trailers &amp; Videos</h2>
-            <div class="gallery-videos">
-                <!-- Example YouTube embed -->
-                <iframe width="420" height="236" src="https://www.youtube.com/embed/nu2EzY0OzEY" title="Necrowarp Trailer" frameborder="0" allowfullscreen style="margin:1em;"></iframe>
-                <!-- Add more video embeds here -->
+            <div class="gallery-videos" style="display:flex;align-items:center;justify-content:center;gap:1em;">
+                <button id="video-prev" aria-label="Previous video" style="font-size:2em;">&#8592;</button>
+                <div id="video-container" style="display:inline-block;">
+                    <iframe width="420" height="236" src="https://www.youtube.com/embed/nu2EzY0OzEY" title="Necrowarp Trailer" frameborder="0" allowfullscreen style="margin:1em;"></iframe>
+                </div>
+                <button id="video-next" aria-label="Next video" style="font-size:2em;">&#8594;</button>
             </div>
             <h2>Screenshots</h2>
-            <div class="gallery-screenshots">
-                <!-- Example screenshot -->
-                <img src="../assets/screenshots/example1.png" alt="Necrowarp Screenshot 1" style="max-width:320px;margin:1em;border-radius:4px;box-shadow:0 2px 8px #000a;" />
-                <img src="../assets/screenshots/20251103220307_1.jpg" alt="Necrowarp Screenshot 1" style="max-width:320px;margin:1em;border-radius:4px;box-shadow:0 2px 8px #000a;" />
-                <img src="../assets/screenshots/20251103220403_1.jpg" alt="Necrowarp Screenshot 2" style="max-width:320px;margin:1em;border-radius:4px;box-shadow:0 2px 8px #000a;" />
-                <img src="../assets/screenshots/20260112190154_1.jpg" alt="Necrowarp Screenshot 3" style="max-width:320px;margin:1em;border-radius:4px;box-shadow:0 2px 8px #000a;" />
-                <img src="../assets/screenshots/20260112190203_1.jpg" alt="Necrowarp Screenshot 4" style="max-width:320px;margin:1em;border-radius:4px;box-shadow:0 2px 8px #000a;" />
-                <!-- Add more screenshots here -->
+            <div class="gallery-screenshots" style="display:flex;align-items:center;justify-content:center;gap:1em;">
+                <button id="screenshot-prev" aria-label="Previous screenshot" style="font-size:2em;">&#8592;</button>
+                <img id="screenshot-main" src="../assets/screenshots/20251103220029_1.jpg" alt="Necrowarp Screenshot" style="max-width:320px;margin:1em;border-radius:4px;box-shadow:0 2px 8px #000a;" />
+                <button id="screenshot-next" aria-label="Next screenshot" style="font-size:2em;">&#8594;</button>
             </div>
+            <script>
+            // Video navigation (expandable for more videos)
+            const videoList = [
+                "https://www.youtube.com/embed/nu2EzY0OzEY"
+                // Add more video URLs here
+            ];
+            let videoIndex = 0;
+            const videoContainer = document.getElementById('video-container');
+            document.getElementById('video-prev').onclick = function() {
+                videoIndex = (videoIndex - 1 + videoList.length) % videoList.length;
+                videoContainer.innerHTML = `<iframe width='420' height='236' src='${videoList[videoIndex]}' title='Necrowarp Trailer' frameborder='0' allowfullscreen style='margin:1em;'></iframe>`;
+            };
+            document.getElementById('video-next').onclick = function() {
+                videoIndex = (videoIndex + 1) % videoList.length;
+                videoContainer.innerHTML = `<iframe width='420' height='236' src='${videoList[videoIndex]}' title='Necrowarp Trailer' frameborder='0' allowfullscreen style='margin:1em;'></iframe>`;
+            };
+
+            // Screenshot navigation
+            const screenshotList = [
+                '../assets/screenshots/20251103220029_1.jpg',
+                '../assets/screenshots/20251103220250_1.jpg',
+                '../assets/screenshots/20251103220301_1.jpg',
+                '../assets/screenshots/20251103220307_1.jpg',
+                '../assets/screenshots/20251103220317_1.jpg',
+                '../assets/screenshots/20251103220403_1.jpg',
+                '../assets/screenshots/20260112190154_1.jpg',
+                '../assets/screenshots/20260112190203_1.jpg',
+                '../assets/screenshots/20260112190213_1.jpg',
+                '../assets/screenshots/20260112190332_1.jpg',
+                '../assets/screenshots/20260112190415_1.jpg'
+            ];
+            let screenshotIndex = 0;
+            const screenshotMain = document.getElementById('screenshot-main');
+            document.getElementById('screenshot-prev').onclick = function() {
+                screenshotIndex = (screenshotIndex - 1 + screenshotList.length) % screenshotList.length;
+                screenshotMain.src = screenshotList[screenshotIndex];
+            };
+            document.getElementById('screenshot-next').onclick = function() {
+                screenshotIndex = (screenshotIndex + 1) % screenshotList.length;
+                screenshotMain.src = screenshotList[screenshotIndex];
+            };
+            </script>
         </section>
     </main>
     <footer>
