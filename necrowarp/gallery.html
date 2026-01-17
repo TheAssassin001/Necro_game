@@ -24,17 +24,17 @@
             <h1 id="gallery-title">Gallery</h1>
             <h2>Trailers &amp; Videos</h2>
             <div class="gallery-videos" style="display:flex;align-items:center;justify-content:center;gap:1em;">
-                <button id="video-prev" aria-label="Previous video" style="font-size:2em;">&#8592;</button>
+                <button id="video-prev" class="carousel-nav-btn" aria-label="Previous video">&#8592;</button>
                 <div id="video-container" style="display:inline-block;">
-                    <iframe width="420" height="236" src="https://www.youtube.com/embed/nu2EzY0OzEY" title="Necrowarp Trailer" frameborder="0" allowfullscreen style="margin:1em;"></iframe>
+                    <iframe width="720" height="405" src="https://www.youtube.com/embed/nu2EzY0OzEY" title="Necrowarp Trailer" frameborder="0" allowfullscreen class="gallery-media-frame"></iframe>
                 </div>
-                <button id="video-next" aria-label="Next video" style="font-size:2em;">&#8594;</button>
+                <button id="video-next" class="carousel-nav-btn" aria-label="Next video">&#8594;</button>
             </div>
             <h2>Screenshots</h2>
             <div class="gallery-screenshots" style="display:flex;align-items:center;justify-content:center;gap:1em;">
-                <button id="screenshot-prev" aria-label="Previous screenshot" style="font-size:2em;">&#8592;</button>
-                <img id="screenshot-main" src="../assets/screenshots/20251103220029_1.jpg" alt="Necrowarp Screenshot" style="max-width:320px;margin:1em;border-radius:4px;box-shadow:0 2px 8px #000a;" />
-                <button id="screenshot-next" aria-label="Next screenshot" style="font-size:2em;">&#8594;</button>
+                <button id="screenshot-prev" class="carousel-nav-btn" aria-label="Previous screenshot">&#8592;</button>
+                <img id="screenshot-main" src="../assets/screenshots/20251103220029_1.jpg" alt="Necrowarp Screenshot" class="gallery-media-frame" style="max-width:720px;max-height:405px;width:720px;height:405px;margin:1em;border-radius:4px;box-shadow:0 2px 8px #000a;object-fit:cover;" />
+                <button id="screenshot-next" class="carousel-nav-btn" aria-label="Next screenshot">&#8594;</button>
             </div>
             <script>
             // Video navigation (expandable for more videos)
