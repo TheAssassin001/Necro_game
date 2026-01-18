@@ -1,0 +1,311 @@
+/* Google Fonts: Press Start 2P and VT323 for retro look */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --font-main: 'Press Start 2P', 'VT323', monospace;
+    --font-mono: 'VT323', 'Fira Mono', monospace;
+    --color-bg: #18171c; /* very dark, slightly purple-black */
+    --color-panel: #231b23; /* dark, muted purple-brown */
+    --color-text: #b9a9b6; /* muted, pale grayish purple */
+    --color-text-muted: #6d5667; /* desaturated, dark mauve */
+    --color-link: #6a2c3a; /* muted, desaturated red-purple */
+    --color-link-hover: #8a5a6c; /* muted, desaturated mauve */
+    --color-border: #2a212a; /* even darker, less contrast */
+    --color-shadow: transparent; /* no glow */
+    --color-red: #7a1a1a; /* deep blood red */
+    --color-purple: #4a2a3a; /* muted, dark purple */
+    --color-accent-purple: #4a2a3a; /* muted accent */
+    --color-accent-red: #7a1a1a; /* muted accent */
+    --color-gray-dark: #18171c;
+    --color-gray: #231b23;
+    --color-gray-light: #b9a9b6;
+    --border-radius: 2px;
+    --transition-fast: 0.1s;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.4;
+    font-size: 1rem;
+    min-height: 100vh;
+    text-shadow: none;
+    letter-spacing: 1px;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    padding-bottom: 2.2rem; /* match reduced footer height */
+    padding-top: 4.2rem; /* adjust to match nav height */
+}
+
+/* Visually hide browser scrollbar but keep scrolling functional */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+    width: 0 !important;
+    background: transparent !important;
+}
+
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+nav {
+    width: 100%;
+    background: rgba(24, 23, 28, 0.92) !important;
+    border-bottom: 1px solid var(--color-border);
+    border-top: none;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 11;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem 2rem;
+    margin: 0;
+}
+nav a {
+    text-decoration: none;
+    color: var(--color-link);
+    padding: 0.5em 1.2em;
+    display: block;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    border: 2px solid var(--color-border);
+    background: var(--color-panel);
+    box-shadow: none;
+    border-radius: var(--border-radius);
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+nav a:focus, nav a:hover {
+    color: var(--color-link-hover);
+    background: #1a141a;
+    outline: 2px solid var(--color-link-hover);
+}
+
+main {
+    max-width: 820px; /* increased from 600px */
+    margin: 4em auto 0 auto; /* more top margin */
+    padding: 2.5em 2.2em 3em 2.2em; /* more padding */
+    background: var(--color-panel);
+    border-radius: var(--border-radius);
+    border: 1px solid #2a212a; /* reduced border weight and contrast */
+    box-shadow: none;
+}
+
+section {
+    margin-bottom: 3.2em; /* more vertical spacing between sections */
+}
+
+button, input[type="submit"] {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    background: var(--color-link);
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+    padding: 0.5em 1.2em;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-top: 1em;
+    box-shadow: none;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+/* Carousel navigation button style */
+.carousel-nav-btn {
+    width: 28px;
+    min-width: 0;
+    height: 236px;
+    padding: 0;
+    margin: 0;
+    border-radius: 2px;
+    background: rgba(36, 30, 36, 0.7);
+    color: var(--color-link);
+    border: 2px solid var(--color-border);
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    transition: background var(--transition-fast), color var(--transition-fast);
+    z-index: 2;
+}
+.carousel-nav-btn:focus, .carousel-nav-btn:hover {
+    background: #1a141a;
+    color: var(--color-link-hover);
+    outline: 2px solid var(--color-link-hover);
+}
+button:hover, input[type="submit"]:hover {
+    background: var(--color-link-hover);
+    color: var(--color-panel);
+    outline: 2px solid var(--color-link-hover);
+}
+
+input, textarea, select {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    background: #1a141a;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    box-shadow: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
+    margin-bottom: 1.1em;
+    text-shadow: none;
+}
+h1, h2 {
+    color: var(--color-red);
+    position: relative;
+}
+
+/* Blood droop pixel effect for h1, h2 */
+h1 .blood-droop, h2 .blood-droop {
+    display: inline-block;
+    width: 6px;
+    height: 12px;
+    background: var(--color-red);
+    border-radius: 0 0 3px 3px;
+    margin-left: 2px;
+    margin-right: 2px;
+    vertical-align: top;
+    box-shadow: 0 1px 2px #000a;
+}
+
+
+code, pre {
+    background: #231b23;
+    color: #8a5a6c;
+    border-radius: 2px;
+    padding: 0.2em 0.6em;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+}
+
+hr {
+    border-top: 1px solid var(--color-border);
+    margin: 2em 0;
+    box-shadow: none;
+}
+
+/* ASCII pixelated world map background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: url('../map_2048.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.80; /* set to 80% visibility */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    will-change: opacity;
+    /* Equal fade around all edges */
+    -webkit-mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
+    mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
+}
+
+/* Dark overlay for readability */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: rgba(10, 8, 16, 0.60); /* slightly lighter overlay for more background visibility */
+}
+
+body > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Larger logo/title for Necrowarp */
+#game-title {
+    max-width: 480px !important;
+}
+
+@media (max-width: 600px) {
+  #game-title {
+    max-width: 98vw !important;
+  }
+}
+
+footer {
+    background: rgba(24, 23, 28, 0.92) !important;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    text-align: center;
+    font-size: 0.98rem;
+    padding: 0.7rem 0 0.6rem 0; /* reduced height */
+    margin-top: 2.5rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 100vw;
+    box-shadow: 0 -2px 12px 0 rgba(0,0,0,0.18);
+}
+
+header {
+    background: none;
+    border-bottom: none;
+    padding: 0.5rem 0 0.5rem 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    width: 100vw;
+    background: none !important;
+    box-shadow: none;
+}
+
+main, section, h1, h2, h3, h4, h5, h6, p, form[aria-label="Contact form"] {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+form[aria-label="Contact form"] > div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch !important;
+    width: 100%;
+}
+form[aria-label="Contact form"] label,
+form[aria-label="Contact form"] input,
+form[aria-label="Contact form"] textarea {
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: left !important;
+}
+form[aria-label="Contact form"] textarea {
+    min-height: 180px;
+    height: 180px;
+    resize: vertical;
+    font-size: 0.6em; /* Reduced text size */
+}
+form[aria-label="Contact form"] button[type="submit"] {
+    margin-top: 0.7em;
+    align-self: center !important;
+    min-width: 120px;
+}
