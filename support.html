@@ -6,8 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Barely Soldered - Support</title>
-    <link rel="stylesheet" href="assets/css/vintage-dark.css">
-    <script defer src="assets/js/main.js"></script>
+        <link rel="stylesheet" href="assets/css/vintage-dark.css">
+        <style>
+            .center-form {
+                max-width: 400px;
+                margin: 2em auto;
+                padding: 1.5em;
+                background: #fff0;
+                border-radius: 8px;
+            }
+            .center-form div {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1em;
+            }
+            .center-form label {
+                margin-bottom: 0.3em;
+            }
+            .center-form textarea {
+                min-height: 120px;
+                resize: vertical;
+            }
+        </style>
+        <script defer src="assets/js/main.js"></script>
 </head>
 <body>
     <header>
@@ -25,8 +46,10 @@
             <h1 id="support-title">Support &amp; Contact</h1>
             <p>If you have questions, feedback, or need help, please use the form below. We appreciate your interest and support!</p>
 
-            <form name="support" method="POST" data-netlify="true" netlify-honeypot="bot-field" autocomplete="off">
+            <form class="center-form" name="support" method="POST" data-netlify="true" netlify-honeypot="bot-field" autocomplete="off" id="support-form">
                 <input type="hidden" name="form-name" value="support">
+                <input type="hidden" name="subject" id="subject-field">
+                <input type="hidden" name="ticket-id" id="ticket-id-field">
                 <p style="display:none">
                     <label>Don’t fill this out if you're human: <input name="bot-field"></label>
                 </p>
@@ -48,8 +71,29 @@
             </form>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Barely Soldered. All rights reserved.</p>
-    </footer>
+        <footer>
+                <p>&copy; 2026 Barely Soldered. All rights reserved.</p>
+        </footer>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('support-form');
+            if (form) {
+                form.addEventListener('submit', function() {
+                    var name = form.querySelector('input[name="name"]').value.trim();
+                    // Generate ticket ID: GEN-YYYYMMDD-XXXX
+                    var now = new Date();
+                    var yyyy = now.getFullYear();
+                    var mm = String(now.getMonth() + 1).padStart(2, '0');
+                    var dd = String(now.getDate()).padStart(2, '0');
+                    var rand = Math.floor(1000 + Math.random() * 9000); // 4-digit random
+                    var ticketId = `GEN-${yyyy}${mm}${dd}-${rand}`;
+                    form.querySelector('input[name="ticket-id"]').value = ticketId;
+                    // Set subject
+                    var subject = `[General] Support #${ticketId} – ${name}`;
+                    form.querySelector('input[name="subject"]').value = subject;
+                });
+            }
+        });
+        </script>
 </body>
 </html>

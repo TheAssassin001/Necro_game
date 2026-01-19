@@ -6,8 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Necrowarp - Support</title>
-    <link rel="stylesheet" href="../assets/css/vintage-dark.css">
-    <script defer src="../assets/js/main.js"></script>
+        <link rel="stylesheet" href="../assets/css/vintage-dark.css">
+        <style>
+            .center-form {
+                max-width: 400px;
+                margin: 2em auto;
+                padding: 1.5em;
+                background: #fff0;
+                border-radius: 8px;
+            }
+            .center-form div {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1em;
+            }
+            .center-form label {
+                margin-bottom: 0.3em;
+            }
+            .center-form textarea {
+                min-height: 120px;
+                resize: vertical;
+            }
+        </style>
+        <script defer src="../assets/js/main.js"></script>
 </head>
 <body>
     <header>
@@ -26,7 +47,18 @@
             <h1 id="support-title">Necrowarp Support &amp; Contact</h1>
             <p>If you have questions, feedback, or need help with Necrowarp, please use the form below. This support form is for Necrowarp-specific issues only.</p>
 
-            <form aria-label="Contact form" autocomplete="off">
+            <!--
+              Netlify will auto-detect this form on deploy.
+              To receive email notifications, configure form notifications in the Netlify dashboard.
+              Emails should be sent to support@barelysold.red.
+            -->
+            <form class="center-form" name="support" method="POST" data-netlify="true" netlify-honeypot="bot-field" autocomplete="off" id="support-form">
+                <input type="hidden" name="form-name" value="support">
+                <input type="hidden" name="subject" id="subject-field">
+                <input type="hidden" name="ticket-id" id="ticket-id-field">
+                <p style="display:none">
+                    <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                </p>
                 <div>
                     <label for="contact-name">Name</label>
                     <input type="text" id="contact-name" name="name" required autocomplete="name">
@@ -36,18 +68,38 @@
                     <input type="email" id="contact-email" name="email" required autocomplete="email">
                 </div>
                 <div>
-                    <label for="contact-message">Message</label>
+                    <label for="contact-message">Description / Message</label>
                     <textarea id="contact-message" name="message" rows="5" required></textarea>
                 </div>
                 <div>
-                    <button type="submit" disabled>Send Message</button>
+                    <button type="submit">Send Message</button>
                 </div>
             </form>
-            <p class="form-note">Submissions will be collected via email or backend in a future update. The form does not send messages yet.</p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Barely Soldered. All rights reserved.</p>
-    </footer>
+        <footer>
+                <p>&copy; 2026 Barely Soldered. All rights reserved.</p>
+        </footer>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('support-form');
+            if (form) {
+                form.addEventListener('submit', function() {
+                    var name = form.querySelector('input[name="name"]').value.trim();
+                    // Generate ticket ID: NW-YYYYMMDD-XXXX
+                    var now = new Date();
+                    var yyyy = now.getFullYear();
+                    var mm = String(now.getMonth() + 1).padStart(2, '0');
+                    var dd = String(now.getDate()).padStart(2, '0');
+                    var rand = Math.floor(1000 + Math.random() * 9000); // 4-digit random
+                    var ticketId = `NW-${yyyy}${mm}${dd}-${rand}`;
+                    form.querySelector('input[name="ticket-id"]').value = ticketId;
+                    // Set subject
+                    var subject = `[Necrowarp] Support #${ticketId} – ${name}`;
+                    form.querySelector('input[name="subject"]').value = subject;
+                });
+            }
+        });
+        </script>
 </body>
 </html>
