@@ -46,10 +46,10 @@
         <section aria-labelledby="support-title">
             <h1 id="support-title">Necrowarp Support &amp; Contact</h1>
             <p>If you have questions, feedback, or need help with Necrowarp, please use the form below. This support form is for Necrowarp-specific issues only.</p>
-                <form class="center-form" name="support" method="POST" data-netlify="true" data-netlify-success="/necrowarp/success/" netlify-honeypot="bot-field" autocomplete="off" id="support-form">
+                <form class="center-form" name="support" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/necrowarp/success/" autocomplete="off" id="support-form">
                 <input type="hidden" name="form-name" value="support">
                 <input type="hidden" name="subject" id="subject-field">
-                    <input type="hidden" name="ticket_id" id="ticket-id-field">
+                <input type="hidden" name="ticket_id" id="ticket-id-field">
                 <p style="display:none">
                     <label>Don’t fill this out if you're human: <input name="bot-field"></label>
                 </p>
@@ -74,26 +74,27 @@
         <footer>
                 <p>&copy; 2026 Barely Soldered. All rights reserved.</p>
         </footer>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var form = document.getElementById('support-form');
-            if (form) {
-                form.addEventListener('submit', function() {
-                    var name = form.querySelector('input[name="name"]').value.trim();
-                    // Generate ticket ID: NW-YYYYMMDD-XXXX
-                    var now = new Date();
-                    var yyyy = now.getFullYear();
-                    var mm = String(now.getMonth() + 1).padStart(2, '0');
-                    var dd = String(now.getDate()).padStart(2, '0');
-                    var rand = Math.floor(1000 + Math.random() * 9000); // 4-digit random
-                    var ticketId = `NW-${yyyy}${mm}${dd}-${rand}`;
-                        form.querySelector('input[name="ticket_id"]').value = ticketId;
-                    // Set subject
-                    var subject = `[Necrowarp] Support #${ticketId} – ${name}`;
-                    form.querySelector('input[name="subject"]').value = subject;
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var form = document.getElementById('support-form');
+                    if (form) {
+                        form.addEventListener('submit', function() {
+                            var name = form.querySelector('input[name="name"]').value.trim();
+                            // Generate ticket ID: NW-YYYYMMDD-XXXX
+                            var now = new Date();
+                            var yyyy = now.getFullYear();
+                            var mm = String(now.getMonth() + 1).padStart(2, '0');
+                            var dd = String(now.getDate()).padStart(2, '0');
+                            var rand = Math.floor(1000 + Math.random() * 9000); // 4-digit random
+                            var ticketId = `NW-${yyyy}${mm}${dd}-${rand}`;
+                            form.querySelector('input[name="ticket_id"]').value = ticketId;
+                            // Set subject
+                            var subject = `[Necrowarp] Support #${ticketId} – ${name}`;
+                            form.querySelector('input[name="subject"]').value = subject;
+                            // Do not prevent or interfere with submission
+                        }, {passive: true});
+                    }
                 });
-            }
-        });
-        </script>
+                </script>
 </body>
 </html>
