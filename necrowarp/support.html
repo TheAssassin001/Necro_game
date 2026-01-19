@@ -32,13 +32,13 @@
 </head>
 <body>
     <header>
-        <nav aria-label="Necrowarp navigation">
+        <nav aria-label="Necrowarp Navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="support.html">Support</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="../index.html">Barely Soldered</a></li>
+                <li><a href="../index.html">Return</a></li>
             </ul>
         </nav>
     </header>
@@ -46,7 +46,7 @@
         <section aria-labelledby="support-title">
             <h1 id="support-title">Necrowarp Support &amp; Contact</h1>
             <p>If you have questions, feedback, or need help with Necrowarp, please use the form below. This support form is for Necrowarp-specific issues only.</p>
-                <form class="center-form" name="support" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/necrowarp/success/" autocomplete="off" id="support-form">
+            <form class="center-form" name="support" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/necrowarp/success/" autocomplete="off" id="support-form">
                 <input type="hidden" name="form-name" value="support">
                 <input type="hidden" name="subject" id="subject-field">
                 <input type="hidden" name="ticket_id" id="ticket-id-field">
@@ -54,12 +54,10 @@
                     <label>Don’t fill this out if you're human: <input name="bot-field"></label>
                 </p>
                 <div>
-                    <label for="contact-name">Name</label>
-                    <input type="text" id="contact-name" name="name" required autocomplete="name">
+                    <label for="contact-name">Name: <input type="text" id="contact-name" name="name" required autocomplete="name"></label>
                 </div>
                 <div>
-                    <label for="contact-email">Email</label>
-                    <input type="email" id="contact-email" name="email" required autocomplete="email">
+                    <label for="contact-email">Email: <input type="email" id="contact-email" name="email" required autocomplete="email"></label>
                 </div>
                 <div>
                     <label for="contact-message">Message</label>
@@ -71,30 +69,30 @@
             </form>
         </section>
     </main>
-        <footer>
-                <p>&copy; 2026 Barely Soldered. All rights reserved.</p>
-        </footer>
-                <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    var form = document.getElementById('support-form');
-                    if (form) {
-                        form.addEventListener('submit', function() {
-                            var name = form.querySelector('input[name="name"]').value.trim();
-                            // Generate ticket ID: NW-YYYYMMDD-XXXX
-                            var now = new Date();
-                            var yyyy = now.getFullYear();
-                            var mm = String(now.getMonth() + 1).padStart(2, '0');
-                            var dd = String(now.getDate()).padStart(2, '0');
-                            var rand = Math.floor(1000 + Math.random() * 9000); // 4-digit random
-                            var ticketId = `NW-${yyyy}${mm}${dd}-${rand}`;
-                            form.querySelector('input[name="ticket_id"]').value = ticketId;
-                            // Set subject
-                            var subject = `[Necrowarp] Support #${ticketId} – ${name}`;
-                            form.querySelector('input[name="subject"]').value = subject;
-                            // Do not prevent or interfere with submission
-                        }, {passive: true});
-                    }
-                });
-                </script>
+    <footer>
+            <p>&copy; 2026 Barely Soldered. All rights reserved.</p>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('support-form');
+        if (form) {
+            form.addEventListener('submit', function() {
+                var name = form.querySelector('input[name="name"]').value.trim();
+                // Generate ticket ID: NW-YYYYMMDD-XXXX
+                var now = new Date();
+                var yyyy = now.getFullYear();
+                var mm = String(now.getMonth() + 1).padStart(2, '0');
+                var dd = String(now.getDate()).padStart(2, '0');
+                var rand = Math.floor(1000 + Math.random() * 9000); // 4-digit random
+                var ticketId = `NW-${yyyy}${mm}${dd}-${rand}`;
+                form.querySelector('input[name="ticket_id"]').value = ticketId;
+                // Set subject
+                var subject = `[Necrowarp] Support #${ticketId} – ${name}`;
+                form.querySelector('input[name="subject"]').value = subject;
+                // Do not prevent or interfere with submission
+            }, {passive: true});
+        }
+    });
+    </script>
 </body>
 </html>
