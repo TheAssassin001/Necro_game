@@ -86,16 +86,19 @@ nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 0.8rem;
   padding: 0.5rem 2rem;
   margin: 0;
+  flex-wrap: nowrap;
 }
 
 nav a {
   text-decoration: none;
   color: var(--color-link);
-  padding: 0.5em 1.2em;
-  display: block;
+  padding: 0.5em 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-main);
   font-size: 1rem;
   border: 2px solid var(--color-border);
@@ -103,6 +106,9 @@ nav a {
   box-shadow: none;
   border-radius: var(--border-radius);
   transition: background var(--transition-fast), color var(--transition-fast);
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 nav a:focus,
@@ -310,13 +316,14 @@ body>* {
   }
 
   nav ul {
-    gap: 1.2rem;
+    gap: 0.6rem;
     padding: 0.5rem 1rem;
+    flex-wrap: nowrap;
   }
 
   nav a {
-    padding: 0.4em 1em;
-    font-size: 0.9rem;
+    padding: 0.4em 0.7em;
+    font-size: 0.85rem;
   }
 
   h1 {
@@ -349,15 +356,15 @@ body>* {
   }
 
   nav ul {
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    padding: 0.4rem 0.8rem;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    padding: 0.4rem 0.5rem;
     justify-content: center;
   }
 
   nav a {
-    padding: 0.5em 0.7em;
-    font-size: 0.7rem;
+    padding: 0.4em 0.5em;
+    font-size: 0.65rem;
     min-height: 40px;
   }
 
@@ -445,13 +452,14 @@ body>* {
   }
 
   nav ul {
-    padding: 0.3rem 0.4rem;
-    gap: 0.25rem;
+    padding: 0.3rem 0.2rem;
+    gap: 0.2rem;
+    flex-wrap: nowrap;
   }
 
   nav a {
-    font-size: 0.65rem;
-    padding: 0.4em 0.6em;
+    font-size: 0.6rem;
+    padding: 0.4em 0.4em;
   }
 
   h1 {
