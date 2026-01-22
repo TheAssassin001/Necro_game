@@ -363,9 +363,9 @@ body>* {
   }
 
   nav a {
-    padding: 0.4em 0.5em;
+    padding: 0.35em 0.5em;
     font-size: 0.65rem;
-    min-height: 40px;
+    min-height: 32px;
   }
 
   h1 {
@@ -399,6 +399,10 @@ body>* {
     width: 32px;
     height: 200px;
     font-size: 1.5em;
+  }
+
+  footer {
+    font-size: 0.75rem;
   }
 
   /* Make Steam widget and iframes responsive */
@@ -489,6 +493,10 @@ body>* {
 
   section {
     margin-bottom: 1.8em;
+  }
+
+  footer {
+    font-size: 0.65rem;
   }
 }
 
