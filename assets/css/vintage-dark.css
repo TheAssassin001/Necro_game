@@ -363,9 +363,9 @@ body>* {
   }
 
   nav a {
-    padding: 0.25em 0.5em;
+    padding: 0.3em 0.5em;
     font-size: 0.65rem;
-    min-height: 28px;
+    min-height: unset;
   }
 
   h1 {
@@ -464,7 +464,7 @@ body>* {
 
   nav a {
     font-size: 0.6rem;
-    padding: 0.3em 0.4em;
+    padding: 0.25em 0.4em;
   }
 
   h1 {
