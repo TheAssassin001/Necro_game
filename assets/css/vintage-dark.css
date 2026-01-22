@@ -402,7 +402,8 @@ body>* {
   }
 
   footer {
-    font-size: 0.75rem;
+    font-size: 0.5rem !important;
+    white-space: nowrap;
   }
 
   /* Make Steam widget and iframes responsive */
@@ -496,7 +497,8 @@ body>* {
   }
 
   footer {
-    font-size: 0.65rem;
+    font-size: 0.45rem !important;
+    white-space: nowrap;
   }
 }
 
@@ -516,6 +518,11 @@ footer {
   z-index: 10;
   width: 100vw;
   box-shadow: 0 -2px 12px 0 rgba(0, 0, 0, 0.18);
+}
+
+footer p {
+  margin: 0;
+  white-space: nowrap;
 }
 
 header {
